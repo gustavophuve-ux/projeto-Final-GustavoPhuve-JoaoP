@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Reino</title>
+
+
+    <style>
+
+        /* ================================= */
+        /* CONFIGURAÇÃO GERAL                */
+        /* ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            padding: 40px 20px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: #e8d8c3;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 0%,
+                    #4a183d 0%,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 0% 100%,
+                    #24143b 0%,
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #080609,
+                    #120b13,
+                    #080609
+                );
+
+        }
+
+
+        /* ================================= */
+        /* CONTAINER                          */
+        /* ================================= */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin: auto;
+
+        }
+
+
+        /* ================================= */
+        /* TÍTULO PRINCIPAL                  */
+        /* ================================= */
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .titulo .simbolo {
+
+            font-size: 45px;
+
+            color: #b58b4c;
+
+            text-shadow:
+                0 0 15px #8b5a2b;
+
+        }
+
+
+        h1 {
+
+            font-size: 42px;
+
+            letter-spacing: 4px;
+
+            color: #d8b98a;
+
+            text-shadow:
+                2px 2px 0 #24150e,
+                0 0 20px #7c3f6b;
+
+        }
+
+
+        .subtitulo {
+
+            margin-top: 10px;
+
+            color: #9d8b7a;
+
+            font-size: 16px;
+
+            font-style: italic;
+
+        }
+
+
+        /* ================================= */
+        /* QUADRADOS DE TEXTO                */
+        /* ================================= */
+
+        .caixa {
+
+            position: relative;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(48, 30, 37, 0.95),
+                    rgba(18, 12, 17, 0.97)
+                );
+
+            border: 1px solid #76552f;
+
+            border-radius: 8px;
+
+            box-shadow:
+
+                0 15px 35px rgba(0, 0, 0, 0.55),
+
+                inset 0 0 25px rgba(113, 65, 37, 0.12);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        /* Cantos decorativos */
+
+        .caixa::before {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 10px;
+
+            left: 15px;
+
+            color: #a77b3f;
+
+            font-size: 18px;
+
+        }
+
+
+        .caixa::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            bottom: 10px;
+
+            right: 15px;
+
+            color: #a77b3f;
+
+            font-size: 18px;
+
+        }
+
+
+        .caixa:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #b58b4c;
+
+            box-shadow:
+
+                0 18px 40px rgba(0, 0, 0, 0.65),
+
+                0 0 20px rgba(128, 53, 91, 0.18);
+
+        }
+
+
+        /* ================================= */
+        /* TÍTULOS DAS CAIXAS                */
+        /* ================================= */
+
+        .caixa h2 {
+
+            color: #c9a76b;
+
+            font-size: 25px;
+
+            margin-bottom: 18px;
+
+            border-bottom: 1px solid #60462e;
+
+            padding-bottom: 12px;
+
+        }
+
+
+        /* ================================= */
+        /* TEXTOS                            */
+        /* ================================= */
+
+        .caixa p {
+
+            color: #cbbbaa;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .destaque {
+
+            color: #b98ad1;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ================================= */
+        /* CAIXAS LADO A LADO                */
+        /* ================================= */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+        }
+
+
+        /* ================================= */
+        /* LISTA                             */
+        /* ================================= */
+
+        .lista {
+
+            list-style: none;
+
+        }
+
+
+        .lista li {
+
+            padding: 10px 0;
+
+            color: #cbbbaa;
+
+            border-bottom: 1px solid rgba(160, 120, 70, 0.15);
+
+        }
+
+
+        .lista li::before {
+
+            content: "⚔ ";
+
+            color: #9f7041;
+
+        }
+
+
+        /* ================================= */
+        /* BOTÃO                             */
+        /* ================================= */
+
+        .botao {
+
+            width: 100%;
+
+            padding: 18px;
+
+            margin-top: 5px;
+
+            border: 1px solid #8d683b;
+
+            border-radius: 7px;
+
+            color: #ead7b5;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #35152d,
+                    #54203d,
+                    #301328
+                );
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            box-shadow:
+
+                0 8px 25px rgba(0, 0, 0, 0.5);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        /* ================================= */
+        /* BOTÃO AO PASSAR O MOUSE           */
+        /* ================================= */
+
+        .botao:hover {
+
+            transform: scale(1.05);
+
+            color: #fff1d0;
+
+            border-color: #c29a59;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #54203d,
+                    #702850,
+                    #45152f
+                );
+
+            box-shadow:
+
+                0 12px 35px rgba(117, 36, 92, 0.4),
+
+                0 0 15px rgba(181, 139, 76, 0.2);
+
+        }
+
+
+        .botao:active {
+
+            transform: scale(0.97);
+
+        }
+
+
+        /* ================================= */
+        /* RODAPÉ                            */
+        /* ================================= */
+
+        .rodape {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            color: #796b60;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+        }
+
+
+        /* ================================= */
+        /* ANIMAÇÃO                           */
+        /* ================================= */
+
+        .caixa {
+
+            animation: aparecer 0.8s ease;
+
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* ================================= */
+        /* CELULAR                            */
+        /* ================================= */
+
+        @media (max-width: 650px) {
+
+            body {
+
+                padding: 25px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .caixa {
+
+                padding: 25px 20px;
+
+            }
+
+
+            .caixa p {
+
+                font-size: 16px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ================================= -->
+        <!-- TÍTULO                            -->
+        <!-- ================================= -->
+
+        <header class="titulo">
+
+            <div class="simbolo">
+                ⚜
+            </div>
+
+            <h1>
+                Extras
+            </h1>
+
+            <p class="subtitulo">
+                "Receitas faceis e baratas google buscar"
+            </p>
+
+        </header>
+
+
+        <!-- ================================= -->
+        <!-- PRIMEIRO QUADRADO                 -->
+        <!-- ================================= -->
+
+        <div class="caixa">
+
+            <h2>
+                ☩ Sobre 
+            </h2>
+
+            <p>
+
+                Meu nome é
+                <span class="destaque">Gugustav</span>.
+
+                <br><br>
+
+                eu tenho um passado triste
+
+                Receita de bolo cake: adicionar farinha, ovo, agua, mistura e coloca no forno
+
+            </p>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- DOIS QUADRADOS                    -->
+        <!-- ================================= -->
+
+        <div class="grid">
+
+
+            <div class="caixa">
+
+                <h2>
+                    ⚔ Interesses
+                </h2>
+
+                <ul class="lista">
+
+                    <li>
+                        Seu interesse: nao sou interesseiro
+                    </li>
+
+                    <li>
+                        Seu hobby: desenhar 
+                    </li>
+
+                    <li>
+                        Seu jogo favorito: War thunde pra online, terraria pra offline
+                    </li>
+
+                    <li>
+                        Seu estilo musical: musica boa
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="caixa">
+
+                <h2>
+                    ♜ Objetivos
+                </h2>
+
+                <ul class="lista">
+
+                    <li>
+                        Seu objetivo: ficar maior
+                    </li>
+
+                    <li>
+                        Seu sonho: trabalhar de desing (pagando bem)
+                    </li>
+
+                    <li>
+                        Seu projeto: em andamento
+                    </li>
+
+                    <li>
+                        Seu futuro: n paguei 10 reais pra vidente, n sei
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- OUTRO QUADRADO                    -->
+        <!-- ================================= -->
+
+        <div class="caixa">
+
+            <h2>
+                📜 Minha História: segredo
+            </h2>
+
+            <p>
+
+                
+                tratado de tordesilhas em grego:
+
+                <br><br>
+
+                tratado de tordesilhas em grego:
+                Εις το όνομα του Παντοδύναμου Θεού — Πατρός, Υιού και Αγίου Πνεύματος, τριών όντως διακριτών και ξεχωριστών προσώπων και μίας ενιαίας θείας ουσίας. Ας είναι γνωστό και φανερό σε όλους
+όσοι βλέπουν αυτό το δημόσιο έγγραφο, ότι στην πόλη Τορντεσίγιας, την έβδομη ημέρα του μηνός
+Ιουνίου, κατά το έτος της γέννησης του Κυρίου ημών Ιησού Χριστού χίλια τετρακόσια ενενήντα
+τέσσερα, παρουσία ημών, των γραμματέων, γραφέων και συμβολαιογράφων που κατονομάζονται
+κατωτέρω, και παρόντων του αξιότιμου Ντον Ενρίκε Ενρίκες, Αρχιθαλαμηπόλου των υψίστων
+και κραταιότατων ηγεμόνων, των Αρχόντων Ντον Φερδινάνδου και Ντόνιας Ισαβέλλας —ελέω Θεού Βασιλέως και
+Βασιλίσσης της Καστίλης, της Λεόν, της Αραγονίας, της Σικελίας, της Γρανάδας, του Τολέδο, της Βαλένθια,
+της Γαλικίας, της Μαγιόρκας, της Σεβίλλης, της Σαρδηνίας, της Κόρδοβας, της Κορσικής, της Μούρθια,
+της Χαέν, του Αλγκάρβε, της Αλχεθίρας, του Γιβραλτάρ και των Καναρίων Νήσων· Κόμητος και Κόμισσας της
+Βαρκελώνης και Αρχόντων της Βισκαΐας και της Μολίνα· Δουκών των Αθηνών και της Νέας Πάτρας· Κόμητων του
+Ρουσιγιόν και της Σερδάνια· Μαρκησίων του Οριστάνο και του Γκοτσεάνο— και του Ντον Γκουτιέρε ντε Κάρδενας,
+Αρχιλογιστή των προαναφερθέντων Βασιλέως και Βασιλίσσης, και του Δρος Ροντρίγκο Μαλντονάδο, μελών
+του Συμβουλίου των προαναφερθέντων Βασιλέως και Βασιλίσσης της Καστίλης, της Λεόν, της Αραγονίας, της Σικελίας,
+της Γρανάδας, του Τολέδο, της Βαλένθια, της Γαλικίας, της Μαγιόρκας, της Σεβίλλης, της Σαρδηνίας,
+της Κόρδοβας, της Κορσικής, της Μούρθια, της Χαέν, του Αλγκάρβε, της Αλχεθίρας, του Γιβραλτάρ και των Καναρίων
+Νήσων· Κόμητος και Κόμισσας της Βαρκελώνης και Αρχόντων της Βισκαΐας και της Μολίνα· Δουκών των
+Αθηνών και της Νέας Πάτρας· Κόμητων του Ρουσιγιόν και της Σερδάνια· Μαρκησίων του Οριστάνο και του
+Γκοτσεάνο, των δεόντως εξουσιοδοτημένων πληρεξουσίων τους, αφενός· και ο αξιότιμος Rui de Sousa, άρχοντας
+του Sagres και του Beringel, και ο Dom João de Sousa, γιος του —Αρχιεπιθεωρητής Αγοράς (*almotacé-mor*)
+του υψίστου και εξοχοτάτου άρχοντα, Dom João, ελέω Θεού Βασιλιά της Πορτογαλίας
+και των Algarve εκατέρωθεν της θάλασσας, στην Αφρική, και Άρχοντα της Γουινέας— και
+ο Aires de Almada, Ανώτατος Δικαστής (*corregedor*) αστικών υποθέσεων στην αυλή του και μέλος του
+Ανωτάτου Συμβουλίου του (*desembargo*), όλοι μέλη του Συμβουλίου του εν λόγω άρχοντα Βασιλιά της
+Πορτογαλίας και πρέσβεις και δεόντως εξουσιοδοτημένοι πληρεξούσιοί του, όπως και τα δύο εν λόγω μέρη
+απέδειξαν μέσω των εγγράφων εξουσιοδότησης και των πληρεξουσίων από τους εν λόγω άρχοντες,
+τους εντολείς τους. Το αυτούσιο κείμενο των οποίων έχει ως εξής: Dom Fernando και Doña Isabel, ελέω
+Θεού Βασιλιάς και Βασίλισσα της Καστίλης, της Λεόν, της Αραγονίας, της Σικελίας, της Γρανάδας,
+του Τολέδο, της Βαλένθια, της Γαλικίας, της Μαγιόρκας, της Σεβίλλης, της Σαρδηνίας, της Κόρδοβας,
+της Κορσικής, της Μούρθια, της Χαέν, του Algarve, του Algeciras, του Γιβραλτάρ και των Καναρίων Νήσων·
+Κόμης και Κόμισσα της Βαρκελώνης και Άρχοντες της Βισκαΐας και της Molina· Δούκες των Αθηνών και
+της Νέας Πάτρας· Κόμητες του Roussillon και της Cerdanya· Μαρκήσιοι του Oristano και του Goceano. Δεδομένου ότι ο γαληνότατος Βασιλιάς της Πορτογαλίας, ο πολύ αγαπητός και προσφιλής αδελφός μας, μας έστειλε
+τους πρέσβεις και πληρεξουσίους του —τον Rui de Sousa (άρχοντα των πόλεων Sagres και
+Beringel), τον Dom João de Sousa (τον Αρχιεπιθεωρητή Αγοράς του) και τον Aires de Almada
+(τον Ανώτατο Δικαστή Αστικών Υποθέσεων της Αυλής του και μέλος του Ανωτάτου Συμβουλίου του),
+οι οποίοι είναι όλοι μέλη του συμβουλίου του— για να διαπραγματευτούν και να καταλήξουν σε συμφωνία και
+συνεννόηση μαζί μας, ή με τους πρέσβεις και πληρεξουσίους μας που ενεργούν για λογαριασμό μας,
+σχετικά με τη διαφορά μεταξύ ημών και του εν λόγω γαληνότατου Βασιλιά της Πορτογαλίας, του αδελφού μας,
+ως προς τα ζητήματα που αφορούν εμάς και εκείνον //
+// σχετικά με όσα απομένουν να ανακαλυφθούν στον Ωκεανό· ...και εναποθέτοντας την εμπιστοσύνη μας σε εσάς —
+τον Ντον Ενρίκε Ενρίκες, τον Αρχιοικονόμο μας, τον Ντον Γκοτέρε ντε Κάρντενας, Μέγα Διοικητή
+του Λεόν και Αρχιλογιστή μας, και τον Δρ. Ροντρίγκο Μαλντονάδο, μέλη άπαντες του
+συμβουλίου μας — γνωρίζοντας ότι είστε πρόσωπα που θα προασπιστούν τα συμφέροντά μας και θα
+εκτελέσουν πιστά οτιδήποτε διατάσσεται και ανατίθεται σε εσάς από εμάς· Με την παρούσα επιστολή, σας παρέχουμε την πλήρη και ολοκληρωτική μας εξουσιοδότηση —με την ανώτατη δυνατή μορφή και όπως ειδικότερα απαιτείται— ώστε, εξ ονόματός μας και για λογαριασμό μας (καθώς και των κληρονόμων, διαδόχων, βασιλείων, ηγεμονιών και των υπηκόων και κατοίκων αυτών), να διαπραγματευτείτε, να συμφωνήσετε, να διευθετήσετε και να οριστικοποιήσετε ρυθμίσεις με τους εν λόγω πρέσβεις του προαναφερθέντος Γαληνοτάτου Βασιλέως της Πορτογαλίας, αδελφού μας. Σας παρέχεται η εξουσία να θεσπίσετε οποιαδήποτε συμφωνία, διευθέτηση, περιορισμό, οριοθέτηση ή συνεννόηση σχετικά με τα προαναφερθέντα ζητήματα —ιδίως όσον αφορά τους ανέμους και τις μοίρες του Βορρά και του Ήλιου, καθώς και εκείνες τις περιοχές, διαιρέσεις και τοποθεσίες στον ουρανό, τη θάλασσα και τη στεριά που κρίνετε σκόπιμες. Επιπλέον, σας παρέχουμε την εξουσία να παραχωρήσετε στον εν λόγω Βασιλέα της Πορτογαλίας, στα βασίλεια και στους διαδόχους του, όλες τις θάλασσες, τα νησιά και τις εκτάσεις που βρίσκονται εντός οποιουδήποτε ορίου ή οριοθέτησης συμφωνηθεί με αυτόν. Ομοίως, σας παρέχουμε την εξουσία να συμφωνήσετε, να διευθετήσετε, να λάβετε και να αποδεχθείτε —για λογαριασμό ημών, των κληρονόμων, των διαδόχων, των βασιλείων, των ηγεμονιών και των υπηκόων και κατοίκων αυτών— ότι όλες οι θάλασσες, τα νησιά και οι εκτάσεις που εμπίπτουν στα όρια και την οριοθέτηση των ακτών, των θαλασσών, των νησιών και των εδαφών που έχουν ανατεθεί σε εμάς και τους διαδόχους μας, θα ανήκουν σε εμάς και στην ηγεμονία και τις κτήσεις μας...
+Eis to ónoma tou Pantodýnamou Theoú — Patrós, Yioú kai Agíou Pnévmatos, trión óntos diakritón kai xechoristón prosópon kai mías eniaías theías ousías. As eínai gnostó kai faneró se ólous
+ósoi vlépoun aftó to dimósio éngrafo, óti stin póli Torntesígias, tin évdomi iméra tou minós
+Iouníou, katá to étos tis génnisis tou Kyríou imón Iisoú Christoú chília tetrakósia enenínta
+téssera, parousía imón, ton grammatéon, graféon kai symvolaiográfon pou katonomázontai
+katotéro, kai parónton tou axiótimou Nton Enríke Enríkes, Archithalamipólou ton ypsíston
+kai krataiótaton igemónon, ton Archónton Nton Ferdinándou kai Ntónias Isavéllas —eléo Theoú Vasiléos kai
+Vasilíssis tis Kastílis, tis León, tis Aragonías, tis Sikelías, tis Granádas, tou Tolédo, tis Valénthia,
+tis Galikías, tis Magiórkas, tis Sevíllis, tis Sardinías, tis Kórdovas, tis Korsikís, tis Moúrthia,
+tis Chaén, tou Alnkárve, tis Alchethíras, tou Givraltár kai ton Kanaríon Níson: Kómitos kai Kómissas tis
+Varkelónis kai Archónton tis Viskaḯas kai tis Molína: Doukón ton Athinón kai tis Néas Pátras: Kómiton tou
+Rousigión kai tis Serdánia: Markisíon tou Oristáno kai tou Nkotseáno— kai tou Nton Nkoutiére nte Kárdenas,
+Archilogistí ton proanaferthénton Vasiléos kai Vasilíssis, kai tou Dros Rontrínko Malntonádo, melón
+tou Symvoulíou ton proanaferthénton Vasiléos kai Vasilíssis tis Kastílis, tis León, tis Aragonías, tis Sikelías,
+tis Granádas, tou Tolédo, tis Valénthia, tis Galikías, tis Magiórkas, tis Sevíllis, tis Sardinías,
+tis Kórdovas, tis Korsikís, tis Moúrthia, tis Chaén, tou Alnkárve, tis Alchethíras, tou Givraltár kai ton Kanaríon
+Níson: Kómitos kai Kómissas tis Varkelónis kai Archónton tis Viskaḯas kai tis Molína: Doukón ton
+Athinón kai tis Néas Pátras: Kómiton tou Rousigión kai tis Serdánia: Markisíon tou Oristáno kai tou
+Nkotseáno, ton deóntos exousiodotiménon plirexousíon tous, afenós: kai o axiótimos Rui de Sousa, árchontas
+tou Sagres kai tou Beringel, kai o Dom João de Sousa, gios tou —Archiepitheoritís Agorás (*almotacé-mor*)
+tou ypsístou kai exochotátou árchonta, Dom João, eléo Theoú Vasiliá tis Portogalías
+kai ton Algarve ekatérothen tis thálassas, stin Afrikí, kai Árchonta tis Gouinéas— kai
+o Aires de Almada, Anótatos Dikastís (*corregedor*) astikón ypothéseon stin avlí tou kai mélos tou
+Anotátou Symvoulíou tou (*desembargo*), óloi méli tou Symvoulíou tou en lógo árchonta Vasiliá tis
+Portogalías kai présveis kai deóntos exousiodotiménoi plirexoúsioí tou, ópos kai ta dýo en lógo méri
+apédeixan méso ton engráfon exousiodótisis kai ton plirexousíon apó tous en lógo árchontes,
+tous entoleís tous. To aftoúsio keímeno ton opoíon échei os exís: Dom Fernando kai Doña Isabel, eléo
+Theoú Vasiliás kai Vasílissa tis Kastílis, tis León, tis Aragonías, tis Sikelías, tis Granádas,
+tou Tolédo, tis Valénthia, tis Galikías, tis Magiórkas, tis Sevíllis, tis Sardinías, tis Kórdovas,
+tis Korsikís, tis Moúrthia, tis Chaén, tou Algarve, tou Algeciras, tou Givraltár kai ton Kanaríon Níson:
+Kómis kai Kómissa tis Varkelónis kai Árchontes tis Viskaḯas kai tis Molina: Doúkes ton Athinón kai
+tis Néas Pátras: Kómites tou Roussillon kai tis Cerdanya: Markísioi tou Oristano kai tou Goceano. Dedoménou óti o galinótatos Vasiliás tis Portogalías, o polý agapitós kai prosfilís adelfós mas, mas ésteile
+tous présveis kai plirexousíous tou —ton Rui de Sousa (árchonta ton póleon Sagres kai
+Beringel), ton Dom João de Sousa (ton Archiepitheorití Agorás tou) kai ton Aires de Almada
+(ton Anótato Dikastí Astikón Ypothéseon tis Avlís tou kai mélos tou Anotátou Symvoulíou tou),
+oi opoíoi eínai óloi méli tou symvoulíou tou— gia na diapragmateftoún kai na katalíxoun se symfonía kai
+synennóisi mazí mas, í me tous présveis kai plirexousíous mas pou energoún gia logariasmó mas,
+schetiká me ti diaforá metaxý imón kai tou en lógo galinótatou Vasiliá tis Portogalías, tou adelfoú mas,
+os pros ta zitímata pou aforoún emás kai ekeínon //
+// schetiká me ósa apoménoun na anakalyfthoún ston Okeanó: ...kai enapothétontas tin empistosýni mas se esás —
+ton Nton Enríke Enríkes, ton Archioikonómo mas, ton Nton Nkotére nte Kárntenas, Méga Dioikití
+tou León kai Archilogistí mas, kai ton Dr. Rontrínko Malntonádo, méli ápantes tou
+symvoulíou mas — gnorízontas óti eíste prósopa pou tha proaspistoún ta symférontá mas kai tha
+ektelésoun pistá otidípote diatássetai kai anatíthetai se esás apó emás: Me tin paroúsa epistolí, sas paréchoume tin plíri kai oloklirotikí mas exousiodótisi —me tin anótati dynatí morfí kai ópos eidikótera apaiteítai— óste, ex onómatós mas kai gia logariasmó mas (kathós kai ton klironómon, diadóchon, vasileíon, igemonión kai ton ypikóon kai katoíkon aftón), na diapragmatefteíte, na symfonísete, na diefthetísete kai na oristikopoiísete rythmíseis me tous en lógo présveis tou proanaferthéntos Galinotátou Vasiléos tis Portogalías, adelfoú mas. Sas paréchetai i exousía na thespísete opoiadípote symfonía, diefthétisi, periorismó, oriothétisi í synennóisi schetiká me ta proanaferthénta zitímata —idíos óson aforá tous anémous kai tis moíres tou Vorrá kai tou Íliou, kathós kai ekeínes tis periochés, diairéseis kai topothesíes ston ouranó, ti thálassa kai ti steriá pou krínete skópimes. Epipléon, sas paréchoume tin exousía na parachorísete ston en lógo Vasiléa tis Portogalías, sta vasíleia kai stous diadóchous tou, óles tis thálasses, ta nisiá kai tis ektáseis pou vrískontai entós opoioudípote oríou í oriothétisis symfonitheí me aftón. Omoíos, sas paréchoume tin exousía na symfonísete, na diefthetísete, na lávete kai na apodechtheíte —gia logariasmó imón, ton klironómon, ton diadóchon, ton vasileíon, ton igemonión kai ton ypikóon kai katoíkon aftón— óti óles oi thálasses, ta nisiá kai oi ektáseis pou empíptoun sta ória kai tin oriothétisi ton aktón, ton thalassón, ton nisión kai ton edafón pou échoun anatetheí se emás kai tous diadóchous mas, tha aníkoun se emás kai stin igemonía kai tis ktíseis mas..
+
+            </p>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- BOTÃO                             -->
+        <!-- ================================= -->
+
+        <button
+            class="botao"
+            onclick="window.location.href='index.html'">
+
+            ⚔ Voltar ao início ⚔
+
+        </button>
+
+
+        <div class="rodape">
+
+            ✦ Que sua jornada seja longa ✦
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
