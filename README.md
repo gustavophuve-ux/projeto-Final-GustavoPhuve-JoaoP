@@ -149,16 +149,5 @@ Fundos
 
 Bordas
 
-📱 Responsividade
-O projeto foi desenvolvido para funcionar em diferentes tamanhos de tela, incluindo:
 
-💻 Computadores
-
-💻 Notebooks
-
-📱 Celulares
-
-📲 Tablets
-
-📚 Objetivo
 Este projeto foi desenvolvido como uma forma de praticar e aprender conceitos de desenvolvimento web, principalmente estrutura HTML, estilização com CSS, animações e interações com JavaScript.
