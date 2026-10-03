@@ -1,12 +1,382 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo.css">
-    <title>Document</title>
+
+    <title>Meu Aplicativo</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(circle at 20% 20%, #8b5cf6 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, #06b6d4 0%, transparent 25%),
+                linear-gradient(135deg, #050816, #111827);
+
+            overflow: hidden;
+        }
+
+        /* Efeito de luz no fundo */
+
+        body::before {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            background: #7c3aed;
+
+            border-radius: 50%;
+
+            filter: blur(150px);
+
+            opacity: 0.25;
+
+            animation: luz 6s infinite alternate;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            padding: 50px 35px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.10);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.5);
+
+            animation: entrada 0.8s ease;
+        }
+
+        .icone {
+            font-size: 65px;
+
+            margin-bottom: 15px;
+
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        h1 {
+            color: white;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cbd5e1;
+
+            font-size: 16px;
+
+            margin-bottom: 35px;
+        }
+
+        .botoes {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        /* BOTÃO */
+
+        .botao {
+
+            position: relative;
+
+            width: 100%;
+
+            padding: 20px;
+
+            border: none;
+
+            border-radius: 18px;
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            transition: all 0.3s ease;
+
+        }
+
+        /* BOTÃO 1 */
+
+        .botao1 {
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #a855f7,
+                #ec4899
+            );
+
+            box-shadow:
+                0 10px 30px rgba(168, 85, 247, 0.4);
+        }
+
+        /* BOTÃO 2 */
+
+        .botao2 {
+
+            background: linear-gradient(
+                135deg,
+                #06b6d4,
+                #2563eb,
+                #6366f1
+            );
+
+            box-shadow:
+                0 10px 30px rgba(37, 99, 235, 0.4);
+        }
+
+        /* QUANDO PASSAR O MOUSE */
+
+        .botao:hover {
+
+            transform: scale(1.08);
+
+            filter: brightness(1.2);
+
+        }
+
+        .botao1:hover {
+
+            box-shadow:
+                0 15px 45px rgba(236, 72, 153, 0.65);
+        }
+
+        .botao2:hover {
+
+            box-shadow:
+                0 15px 45px rgba(6, 182, 212, 0.65);
+        }
+
+        /* QUANDO CLICAR */
+
+        .botao:active {
+
+            transform: scale(0.96);
+
+        }
+
+        /* BRILHO */
+
+        .botao::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 80%;
+
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.5),
+                transparent
+            );
+
+            transform: skewX(-25deg);
+
+            transition: 0.7s;
+
+        }
+
+        .botao:hover::before {
+
+            left: 130%;
+
+        }
+
+        /* ANIMAÇÕES */
+
+        @keyframes entrada {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(0.9);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+        @keyframes flutuar {
+
+            0%, 100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-10px);
+
+            }
+
+        }
+
+        @keyframes luz {
+
+            from {
+
+                transform:
+                    translate(-150px, -100px);
+
+            }
+
+            to {
+
+                transform:
+                    translate(150px, 100px);
+
+            }
+
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 500px) {
+
+            .card {
+
+                padding: 40px 25px;
+
+            }
+
+            h1 {
+
+                font-size: 28px;
+
+            }
+
+            .botao {
+
+                padding: 18px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
-    quero uma torradeira e uma ayr frier, aier fraier, air frier
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="icone">
+                🚀
+            </div>
+
+            <h1>
+                Bem-vindo!
+            </h1>
+
+            <p>
+                Escolha uma opção para continuar
+            </p>
+
+            <div class="botoes">
+
+                <button
+                    class="botao botao1"
+                    onclick="abrirPagina('pagina1.html')">
+
+                    🚀 &nbsp; quem eu sou
+
+                </button>
+
+                <button
+                    class="botao botao2"
+                    onclick="abrirPagina('pagina2.html')">
+
+                    ⭐ &nbsp; oque eu gosto
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function abrirPagina(pagina) {
+
+            window.location.href = pagina;
+
+        }
+
+    </script>
+
 </body>
+
 </html>
